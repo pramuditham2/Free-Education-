@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="si">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library & Resources | Science Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#1D4ED8', secondary: '#9333EA', darkBg: '#0F172A', cardBg: 'rgba(30, 41, 59, 0.7)' },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'], sinhala: ['Noto Sans Sinhala', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&family=Outfit:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .search-input::placeholder {
+            color: #64748b;
+        }
+    </style>
+</head>
+
+<body class="bg-darkBg text-white font-sans antialiased overflow-x-hidden pt-24">
+    <div class="fixed top-0 right-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div
+            class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary rounded-full blur-[150px] opacity-30 animate-pulse-slow">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300 py-4 glass-nav scrolled" id="navbar">
+        <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold flex items-center gap-2">
+                <i class="ph-fill ph-atom text-primary text-3xl"></i> Science<span class="text-primary">Hub</span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-semibold text-gray-300">
+                <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                <a href="classes.html" class="hover:text-white transition-colors">Live Classes</a>
+                <a href="resources.html" class="text-white border-b-2 border-primary pb-1">Library</a>
+                <a href="dashboard.html" class="hover:text-white transition-colors">Dashboard</a>
+            </div>
+            <a href="dashboard.html"
+                class="hidden md:block bg-gradient-to-r from-primary to-secondary px-6 py-2.5 rounded-full font-semibold hover:scale-105 transition-transform shadow-lg shadow-primary/30 text-white flex items-center gap-2">
+                Join Free <i class="ph-bold ph-sign-in"></i>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 lg:px-12 pb-24 grid lg:grid-cols-4 gap-8 fade-up">
+
+        <!-- Sidebar Filters -->
+        <aside class="glass-card rounded-2xl p-6 border border-gray-800 h-fit lg:col-span-1 hidden lg:block">
+            <div class="mb-8">
+                <h3 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2 flex items-center gap-2"><i
+                        class="ph-fill ph-funnel"></i> Filter By Subject</h3>
+                <div class="space-y-3">
+                    <label class="flex items-center gap-3 cursor-pointer group"><input type="checkbox"
+                            class="w-4 h-4 rounded bg-darkBg border-gray-600 text-primary focus:ring-primary/50"><span
+                            class="group-hover:text-primary transition-colors">Biology</span></label>
+                    <label class="flex items-center gap-3 cursor-pointer group"><input type="checkbox"
+                            class="w-4 h-4 rounded bg-darkBg border-gray-600 text-primary focus:ring-primary/50"><span
+                            class="group-hover:text-primary transition-colors">Physics</span></label>
+                    <label class="flex items-center gap-3 cursor-pointer group"><input type="checkbox"
+                            class="w-4 h-4 rounded bg-darkBg border-gray-600 text-primary focus:ring-primary/50"><span
+                            class="group-hover:text-primary transition-colors">Chemistry</span></label>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h3 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2 flex items-center gap-2"><i
+                        class="ph-fill ph-file-text"></i> Resource Type</h3>
+                <div class="space-y-3">
+                    <label class="flex items-center gap-3 cursor-pointer group"><input type="checkbox"
+                            class="w-4 h-4 rounded bg-darkBg border-gray-600 text-secondary focus:ring-secondary/50"><span
+                            class="group-hover:text-secondary transition-colors">Past Papers</span></label>
+                    <label class="flex items-center gap-3 cursor-pointer group"><input type="checkbox"
+                            class="w-4 h-4 rounded bg-darkBg border-gray-600 text-secondary focus:ring-secondary/50"><span
+                            class="group-hover:text-secondary transition-colors">Short Notes</span></label>
+                    <label class="flex items-center gap-3 cursor-pointer group"><input type="checkbox"
+                            class="w-4 h-4 rounded bg-darkBg border-gray-600 text-secondary focus:ring-secondary/50"><span
+                            class="group-hover:text-secondary transition-colors">Tutes (Lessons)</span></label>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="lg:col-span-3">
+            <div class="mb-8">
+                <h1 class="text-3xl md:text-5xl font-bold font-sinhala drop-shadow-lg mb-2">සියලුම නිබන්ධන</h1>
+                <p class="text-gray-400">Over 500+ curated PDFs, notes, and past papers available for download.</p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="relative w-full mb-8 group">
+                <div
+                    class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-primary transition-colors">
+                    <i class="ph-bold ph-magnifying-glass text-xl"></i>
+                </div>
+                <input type="text"
+                    class="search-input w-full bg-slate-800/50 border border-gray-700 rounded-2xl py-4 pl-12 pr-4 text-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all font-sinhala backdrop-blur-md"
+                    placeholder="Search for notes, past papers...">
+                <button
+                    class="absolute right-3 top-1/2 -translate-y-1/2 bg-primary hover:bg-blue-600 px-6 py-2 rounded-xl text-sm font-bold transition-colors shadow-lg shadow-primary/20">Search</button>
+            </div>
+
+            <!-- Library Grid -->
+            <div class="grid md:grid-cols-2 gap-4">
+                <!-- PDF Item -->
+                <div
+                    class="glass-card p-5 rounded-2xl border border-gray-800 hover:border-gray-500 transition-all flex items-start gap-4 group">
+                    <div class="w-16 h-16 rounded-xl bg-red-500/10 flex items-center justify-center shrink-0">
+                        <i
+                            class="ph-fill ph-file-pdf text-red-500 text-3xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <span
+                            class="text-xs font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full inline-block mb-2">Physics</span>
+                        <h4 class="font-bold text-lg mb-1 leading-tight font-sinhala">යාන්ත්‍ර විද්‍යාව - Short Note
+                        </h4>
+                        <p class="text-xs text-gray-400 mb-3">Unit 2 • Mechanics • 12 Pages • 2.4 MB</p>
+                        <div class="flex gap-2">
+                            <button
+                                class="bg-white/10 hover:bg-white/20 px-4 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-2"><i
+                                    class="ph-bold ph-eye"></i> View</button>
+                            <button
+                                class="bg-primary/20 text-primary-light hover:bg-primary hover:text-white px-4 py-1.5 rounded-lg text-xs font-bold transition-colors border border-primary/50 flex items-center gap-2"><i
+                                    class="ph-bold ph-download-simple"></i> Download</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PDF Item -->
+                <div
+                    class="glass-card p-5 rounded-2xl border border-gray-800 hover:border-gray-500 transition-all flex items-start gap-4 group">
+                    <div class="w-16 h-16 rounded-xl bg-green-500/10 flex items-center justify-center shrink-0">
+                        <i
+                            class="ph-fill ph-file-pdf text-green-500 text-3xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <span
+                            class="text-xs font-bold text-green-400 bg-green-500/10 px-2 py-0.5 rounded-full inline-block mb-2">Biology</span>
+                        <h4 class="font-bold text-lg mb-1 leading-tight font-sinhala">2023 2000 MCQ Book 1</h4>
+                        <p class="text-xs text-gray-400 mb-3">MCQ Target • 45 Pages • 4.1 MB</p>
+                        <div class="flex gap-2">
+                            <button
+                                class="bg-white/10 hover:bg-white/20 px-4 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-2"><i
+                                    class="ph-bold ph-eye"></i> View</button>
+                            <button
+                                class="bg-primary/20 text-primary-light hover:bg-primary hover:text-white px-4 py-1.5 rounded-lg text-xs font-bold transition-colors border border-primary/50 flex items-center gap-2"><i
+                                    class="ph-bold ph-download-simple"></i> Download</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PDF Item -->
+                <div
+                    class="glass-card p-5 rounded-2xl border border-gray-800 hover:border-gray-500 transition-all flex items-start gap-4 group">
+                    <div class="w-16 h-16 rounded-xl bg-purple-500/10 flex items-center justify-center shrink-0">
+                        <i
+                            class="ph-fill ph-file-pdf text-purple-500 text-3xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <span
+                            class="text-xs font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full inline-block mb-2">Chemistry</span>
+                        <h4 class="font-bold text-lg mb-1 leading-tight font-sinhala">කාබනික රසායනය Map</h4>
+                        <p class="text-xs text-gray-400 mb-3">Organic Reaction Mind map • 1 Page • High Res</p>
+                        <div class="flex gap-2">
+                            <button
+                                class="bg-white/10 hover:bg-white/20 px-4 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-2"><i
+                                    class="ph-bold ph-eye"></i> View</button>
+                            <button
+                                class="bg-primary/20 text-primary-light hover:bg-primary hover:text-white px-4 py-1.5 rounded-lg text-xs font-bold transition-colors border border-primary/50 flex items-center gap-2"><i
+                                    class="ph-bold ph-download-simple"></i> Download</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PDF Item -->
+                <div
+                    class="glass-card p-5 rounded-2xl border border-gray-800 hover:border-gray-500 transition-all flex items-start gap-4 group">
+                    <div class="w-16 h-16 rounded-xl bg-yellow-500/10 flex items-center justify-center shrink-0">
+                        <i
+                            class="ph-fill ph-file-archive text-yellow-500 text-3xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <span
+                            class="text-xs font-bold text-yellow-400 bg-yellow-500/10 px-2 py-0.5 rounded-full inline-block mb-2">Past
+                            Papers</span>
+                        <h4 class="font-bold text-lg mb-1 leading-tight font-sinhala">2010-2023 Physics Papers</h4>
+                        <p class="text-xs text-gray-400 mb-3">ZIP Archive • Past Papers Set • 85 MB</p>
+                        <div class="flex gap-2">
+                            <button
+                                class="bg-primary/20 text-primary-light hover:bg-primary hover:text-white px-4 py-1.5 rounded-lg text-xs font-bold transition-colors border border-primary/50 flex items-center gap-2"><i
+                                    class="ph-bold ph-download-simple"></i> Download All Pack</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12 gap-2">
+                <button
+                    class="w-10 h-10 rounded-lg glass-card border border-gray-700 flex items-center justify-center hover:bg-white/10 transition-colors"><i
+                        class="ph-bold ph-caret-left"></i></button>
+                <button
+                    class="w-10 h-10 rounded-lg bg-primary font-bold text-white flex items-center justify-center shadow-lg shadow-primary/30">1</button>
+                <button
+                    class="w-10 h-10 rounded-lg glass-card border border-gray-700 font-bold hover:bg-white/10 transition-colors flex items-center justify-center">2</button>
+                <button
+                    class="w-10 h-10 rounded-lg glass-card border border-gray-700 font-bold hover:bg-white/10 transition-colors flex items-center justify-center">3</button>
+                <button
+                    class="w-10 h-10 rounded-lg glass-card border border-gray-700 flex items-center justify-center hover:bg-white/10 transition-colors"><i
+                        class="ph-bold ph-caret-right"></i></button>
+            </div>
+        </main>
+    </div>
+
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        gsap.from('.fade-up', { y: 30, opacity: 0, duration: 1, stagger: 0.1 });
+        gsap.from('.glass-card', { scale: 0.95, opacity: 0, duration: 0.8, stagger: 0.1, delay: 0.2 });
+    </script>
+</body>
+
+</html>
