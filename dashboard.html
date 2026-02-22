@@ -58,14 +58,14 @@
 
         <div class="mt-auto p-6 border-t border-gray-800">
             <div class="flex items-center gap-3 group cursor-pointer p-2 rounded-xl hover:bg-white/5 transition-colors">
-                <img src="https://ui-avatars.com/api/?name=Kasun+Perera&background=1D4ED8&color=fff"
+                <img id="sidebarAvatar" src="https://ui-avatars.com/api/?name=Student&background=1D4ED8&color=fff"
                     class="w-10 h-10 rounded-full object-cover">
                 <div>
-                    <h4 class="font-bold text-sm">Kasun Perera</h4>
+                    <h4 class="font-bold text-sm" id="sidebarName">Student</h4>
                     <p class="text-xs text-gray-400">A/L 2025</p>
                 </div>
             </div>
-            <a href="index.html"
+            <a href="login.html"
                 class="mt-4 flex justify-center items-center gap-2 text-sm text-red-400 hover:text-red-300 transition-colors w-full border border-red-500/20 py-2 rounded-lg bg-red-500/10">
                 <i class="ph-bold ph-sign-out"></i> Log Out
             </a>
@@ -83,7 +83,7 @@
 
             <header class="flex justify-between items-center mb-10 fade-up">
                 <div>
-                    <h1 class="text-3xl font-bold font-sinhala">ආයුබෝවන්, කසුන්! 👋</h1>
+                    <h1 class="text-3xl font-bold font-sinhala">ආයුබෝවන්, <span id="welcomeName">Student</span>! 👋</h1>
                     <p class="text-gray-400 mt-1">Here is your study progress for this week.</p>
                 </div>
                 <!-- Mobile Only Nav Toggle -->
@@ -240,6 +240,21 @@
     <script>
         gsap.from('.fade-in-delayed', { opacity: 0, duration: 2, delay: 0.5 });
         gsap.from('.fade-up', { y: 30, opacity: 0, duration: 0.8, stagger: 0.15, ease: 'power2.out' });
+
+        // Get Name from Local Storage
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedName = localStorage.getItem('studentName') || 'මගේ යාළුවා'; // Default fallback
+
+            // Set first name for welcome (split by space)
+            const firstName = storedName.split(' ')[0];
+
+            document.getElementById('sidebarName').textContent = storedName;
+            document.getElementById('welcomeName').textContent = firstName;
+
+            // Update Avatar API with URL safe encoded name
+            const avatarUrl = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(storedName) + '&background=1D4ED8&color=fff';
+            document.getElementById('sidebarAvatar').src = avatarUrl;
+        });
     </script>
 </body>
 
