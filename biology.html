@@ -16,51 +16,23 @@
             }
         }
     </script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&family=Outfit:wght@300;400;600;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="css/styles.css">
     <style>
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.4s ease-out forwards;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .tab-btn.active {
-            background: rgba(34, 197, 94, 0.2);
-            color: #4ade80;
-            border-left-color: #4ade80;
-        }
+        .tab-content { display: none; animation: fadeIn 0.4s ease-out forwards; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .tab-btn.active { background: rgba(34, 197, 94, 0.2); color: #4ade80; border-left-color: #4ade80; }
+        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
     </style>
 </head>
 
 <body class="bg-darkBg text-white font-sans antialiased overflow-x-hidden pt-24">
-    <!-- Ambient Lighting -->
     <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-        <div
-            class="absolute top-[10%] left-[-10%] w-[40%] h-[40%] bg-green-600 rounded-full blur-[200px] opacity-20 animate-pulse-slow">
-        </div>
+        <div class="absolute top-[10%] left-[-10%] w-[40%] h-[40%] bg-green-600 rounded-full blur-[200px] opacity-20"></div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300 py-4 glass-nav scrolled" id="navbar">
+    <nav class="fixed top-0 w-full z-50 bg-darkBg/80 backdrop-blur-md border-b border-white/10 py-4">
         <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold flex items-center gap-2">
                 <i class="ph-fill ph-atom text-primary text-3xl"></i> Science<span class="text-primary">Hub</span>
@@ -71,174 +43,151 @@
                 <a href="resources.html" class="hover:text-white transition-colors">Library</a>
                 <a href="dashboard.html" class="hover:text-white transition-colors">Dashboard</a>
             </div>
-            <a href="dashboard.html"
-                class="hidden md:block bg-gradient-to-r from-primary to-secondary px-6 py-2.5 rounded-full font-semibold hover:scale-105 transition-transform shadow-lg shadow-primary/30 text-white flex items-center gap-2">
+            <a href="dashboard.html" class="hidden md:block bg-gradient-to-r from-primary to-secondary px-6 py-2.5 rounded-full font-semibold hover:scale-105 transition-transform text-white">
                 Join Free <i class="ph-bold ph-sign-in"></i>
             </a>
         </div>
     </nav>
 
     <div class="container mx-auto px-6 lg:px-12 pb-24">
-
-        <!-- Header -->
-        <div class="flex flex-col md:flex-row items-center gap-6 mb-12 fade-up">
-            <div
-                class="w-24 h-24 rounded-3xl bg-green-500/20 flex items-center justify-center border border-green-500/30 shadow-[0_0_30px_rgba(34,197,94,0.3)] shrink-0">
+        <div class="flex flex-col md:flex-row items-center gap-6 mb-12">
+            <div class="w-24 h-24 rounded-3xl bg-green-500/20 flex items-center justify-center border border-green-500/30 shadow-[0_0_30px_rgba(34,197,94,0.3)]">
                 <i class="ph-fill ph-plant text-5xl text-green-400"></i>
             </div>
             <div>
-                <h1 class="text-4xl md:text-5xl font-bold font-sinhala drop-shadow-lg mb-2">ජීව විද්‍යාව (Biology)</h1>
+                <h1 class="text-4xl md:text-5xl font-bold font-sinhala mb-2">ජීව විද්‍යාව (Biology)</h1>
                 <p class="text-green-400 font-semibold mb-3 flex items-center gap-2 font-sinhala text-lg">
                     <i class="ph-fill ph-chalkboard-teacher text-xl"></i> මෙහෙයවීම: සශංක ධනුජය
                 </p>
-                <p class="text-gray-400 text-lg">Select a unit from below to access dedicated video lessons, PDFs, and
-                    past papers.</p>
             </div>
         </div>
 
-        <div class="grid lg:grid-cols-4 gap-8 fade-up">
-
-            <!-- Sidebar Tabs (Units 1 to 10) -->
+        <div class="grid lg:grid-cols-4 gap-8">
             <aside class="lg:col-span-1">
-                <div class="glass-card rounded-2xl border border-gray-800 p-2 sticky top-32">
-                    <h3
-                        class="text-sm font-bold text-gray-400 uppercase tracking-widest px-4 py-3 mb-2 border-b border-gray-800 flex items-center gap-2">
+                <div class="glass-card rounded-2xl p-2 sticky top-32">
+                    <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest px-4 py-3 mb-2 border-b border-gray-800">
                         <i class="ph-bold ph-list-numbers"></i> All Units
                     </h3>
-                    <div class="flex flex-col gap-1" id="tab-container">
-                        <!-- JS will populate tabs here to avoid repetition in HTML -->
-                    </div>
+                    <div class="flex flex-col gap-1" id="tab-container"></div>
                 </div>
             </aside>
 
-            <!-- Main Content Area for Selected Unit -->
-            <main class="lg:col-span-3 min-h-[500px]" id="content-container">
-                <!-- JS will generate content here mapped to the active tab -->
-            </main>
+            <main class="lg:col-span-3 min-h-[500px]" id="content-container"></main>
         </div>
-
     </div>
 
-    <!-- Data & Script -->
     <script>
-        // Data for Units
         const units = [
-            { id: 1, title: 'ජීව විද්‍යාව හැඳින්වීම (Introduction)', notes: 12, videos: 5, pdf: '#', video: '#', past_papers: '#', model_papers: '#' },
-            { id: 2, title: 'ජීවයේ රසායනික හා සෛලීය පදනම', notes: 25, videos: 14, pdf: '#', video: '#', past_papers: '#', model_papers: '#' },
-            { id: 3, title: 'ජීවීන්ගේ පරිණාමය හා විවිධත්වය', notes: 30, videos: 18, pdf: '#', video: '#', past_papers: '#', model_papers: '#' },
-            { id: 4, title: 'ශාක ආකාරය හා ක්‍රියාකාරිත්වය', notes: 45, videos: 22, pdf: '#', video: '#', past_papers: '#', model_papers: '#' },
-            { id: 5, title: 'සත්ත්ව ආකාරය හා ක්‍රියාකාරිත්වය', notes: 50, videos: 30, pdf: '#', video: '#', past_papers: '#', model_papers: '#' },
-            { id: 6, title: 'ප්‍රවේණිය (Genetics)', notes: 20, videos: 10, pdf: '#', video: '#', past_papers: '#', model_papers: '#' },
-            { id: 7, title: 'අණුක ජීව විද්‍යාව හා ප්‍රතිසංයෝජිත DNA', notes: 15, videos: 8, pdf: '#', video: '#', past_papers: '#', model_papers: '#' },
-            { id: 8, title: 'පරිසර ජීව විද්‍යාව', notes: 18, videos: 9, pdf: '#', video: '#', past_papers: '#', model_papers: '#' },
-            { id: 9, title: 'ක්ෂුද්‍ර ජීව විද්‍යාව', notes: 22, videos: 12, pdf: '#', video: '#', past_papers: '#', model_papers: '#' },
-            { id: 10, title: 'ව්‍යවහාරික ජීව විද්‍යාව', notes: 14, videos: 7, pdf: '#', video: '#', past_papers: '#', model_papers: '#' }
+            { id: 1, title: 'ජීව විද්‍යාව හැඳින්වීම (Introduction)', notes: 12, videos: 5, pdf: '#', past_papers: '#', model_papers: '#' },
+            { 
+                id: 2, 
+                title: 'ජීවයේ රසායනික හා සෛලීය පදනම', 
+                notes: 25, 
+                videos: 9, 
+                pdf: '#', 
+                past_papers: '#', 
+                model_papers: '#',
+                subTopics: [
+                    { name: "රසායනික පදනම", link: "https://www.youtube.com/live/h6ihZRGwAbY" },
+                    { name: "සෛලීය පදනම 1", link: "https://www.youtube.com/live/hnJreAd0_-w" },
+                    { name: "සෛලීය පදනම 2", link: "https://youtu.be/D5mZ1dKKloE" },
+                    { name: "සෛල චක්‍රය හා විභාජනය", link: "https://www.youtube.com/live/yzNTQO7pjGM" },
+                    { name: "ඌනන විභාජනය හා ගඩු අර්බුධ පිලිකා", link: "https://www.youtube.com/live/dLJY5fCcHr4" },
+                    { name: "සෛලීය ශ්වසනය", link: "https://youtu.be/d2O_NQ_8bAI" },
+                    { name: "ප්‍රභාසංශ්ලේෂණය", link: "https://youtu.be/yVi_AzlZTS4" },
+                    { name: "C4 ප්‍රභාසංශ්ලේෂණය", link: "https://youtu.be/XShxrsKCJL0" },
+                    { name: "එන්සයිම", link: "https://youtube.com/live/ce63_Xf44g0" }
+                ]
+            },
+            { id: 3, title: 'ජීවීන්ගේ පරිණාමය හා විවිධත්වය', notes: 30, videos: 18, pdf: '#', past_papers: '#', model_papers: '#' },
+            { id: 4, title: 'ශාක ආකාරය හා ක්‍රියාකාරිත්වය', notes: 45, videos: 22, pdf: '#', past_papers: '#', model_papers: '#' },
+            { id: 5, title: 'සත්ත්ව ආකාරය හා ක්‍රියාකාරිත්වය', notes: 50, videos: 30, pdf: '#', past_papers: '#', model_papers: '#' },
+            { id: 6, title: 'ප්‍රවේණිය (Genetics)', notes: 20, videos: 10, pdf: '#', past_papers: '#', model_papers: '#' },
+            { id: 7, title: 'අණුක ජීව විද්‍යාව හා ප්‍රතිසංයෝජිත DNA', notes: 15, videos: 8, pdf: '#', past_papers: '#', model_papers: '#' },
+            { id: 8, title: 'පරිසර ජීව විද්‍යාව', notes: 18, videos: 9, pdf: '#', past_papers: '#', model_papers: '#' },
+            { 
+                id: 9, 
+                title: 'ක්ෂුද්‍ර ජීව විද්‍යාව', 
+                notes: 22, 
+                videos: 6, 
+                pdf: '#', 
+                past_papers: '#', 
+                model_papers: '#',
+                subTopics: [
+                    { name: "ක්ෂුද්‍ර ජීව විද්‍යාව 01", link: "https://youtu.be/nodygBkXff4" },
+                    { name: "ක්ෂුද්‍ර ජීව විද්‍යාව 02", link: "https://youtu.be/3-S7YLN1K7o" },
+                    { name: "ක්ෂුද්‍ර ජීව විද්‍යාව 03", link: "https://youtube.com/live/m4LiG27ODwg" },
+                    { name: "ක්ෂුද්‍ර ජීව විද්‍යාව 04", link: "https://youtu.be/Rchz_p-7VgE" },
+                    { name: "ක්ෂුද්‍ර ජීව විද්‍යාව 05", link: "https://www.youtube.com/live/ebKuglA9p-Y" },
+                    { name: "ක්ෂුද්‍ර ජීව විද්‍යාව 06", link: "https://www.youtube.com/live/BQ4eW8nsm24" }
+                ]
+            },
+            { id: 10, title: 'ව්‍යවහාරික ජීව විද්‍යාව', notes: 14, videos: 7, pdf: '#', past_papers: '#', model_papers: '#' }
         ];
 
-        const tabContainer = document.getElementById('tab-container');
-        const contentContainer = document.getElementById('content-container');
-
         function selectUnit(unitId) {
-            // Update Tab classes
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById(`tab-${unitId}`).classList.add('active');
-
-            // Update Content classes
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
             document.getElementById(`content-${unitId}`).classList.add('active');
         }
 
-        // Generate HTML for Tabs and Contents
+        const tabContainer = document.getElementById('tab-container');
+        const contentContainer = document.getElementById('content-container');
+
         units.forEach((unit, index) => {
-            // Create Tab
             const tabBtn = document.createElement('button');
             tabBtn.id = `tab-${unit.id}`;
             tabBtn.className = `tab-btn w-full text-left px-4 py-3 rounded-xl border-l-4 border-transparent hover:bg-white/5 font-semibold transition-all flex items-center justify-between group ${index === 0 ? 'active' : ''}`;
             tabBtn.onclick = () => selectUnit(unit.id);
-            tabBtn.innerHTML = `
-                <span class="font-sinhala text-sm truncate pr-2"><span class="text-green-500 font-bold mr-2">U${unit.id}</span> ${unit.title}</span>
-                <i class="ph-bold ph-caret-right text-gray-500 group-hover:text-white transition-colors"></i>
-            `;
+            tabBtn.innerHTML = `<span class="font-sinhala text-sm"><span class="text-green-500 font-bold mr-2">U${unit.id}</span> ${unit.title}</span><i class="ph-bold ph-caret-right text-gray-500 group-hover:text-white"></i>`;
             tabContainer.appendChild(tabBtn);
 
-            // Create Content Array
+            let subTopicsHTML = '';
+            if (unit.subTopics) {
+                subTopicsHTML = `
+                    <h4 class="text-xl font-bold mt-10 mb-6 flex items-center gap-2 text-white">
+                        <i class="ph-bold ph-monitor-play text-blue-400"></i> Video Lessons
+                    </h4>
+                    <div class="grid gap-3">
+                        ${unit.subTopics.map(sub => `
+                            <a href="${sub.link}" target="_blank" class="glass-card p-4 rounded-2xl border border-gray-700 hover:border-blue-500 hover:bg-blue-500/10 flex items-center gap-4 group transition-all">
+                                <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center border border-blue-500/20">
+                                    <i class="ph-fill ph-play-circle text-2xl text-blue-400"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <span class="font-sinhala text-gray-200 group-hover:text-white block text-sm md:text-base">${sub.name}</span>
+                                    <span class="text-[10px] text-blue-400 uppercase font-bold tracking-wider">YouTube Lesson</span>
+                                </div>
+                                <i class="ph-bold ph-arrow-square-out text-gray-600 group-hover:text-blue-400"></i>
+                            </a>
+                        `).join('')}
+                    </div>`;
+            }
+
             const contentDiv = document.createElement('div');
             contentDiv.id = `content-${unit.id}`;
             contentDiv.className = `tab-content ${index === 0 ? 'active' : ''}`;
-
-            // Dummy content generated per unit
             contentDiv.innerHTML = `
                 <div class="glass-card p-8 rounded-3xl border border-green-500/20 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-green-500/10 rounded-full blur-[80px] pointer-events-none"></div>
-                    
                     <h2 class="text-sm font-bold text-green-400 tracking-widest uppercase mb-2">Unit 0${unit.id}</h2>
                     <h3 class="text-3xl lg:text-4xl font-bold font-sinhala mb-6">${unit.title}</h3>
                     
-                    <p class="text-gray-400 mb-8 max-w-2xl leading-relaxed">
-                        Access all curated resources specific to Unit ${unit.id}. Includes highly detailed short notes, comprehensive video tutorials, and categorized past paper questions.
-                    </p>
-
-                    <div class="flex gap-6 mb-10 border-b border-gray-800 pb-8">
-                        <div><div class="text-3xl font-bold text-white">${unit.videos}</div><div class="text-sm text-gray-400">Video Lessons</div></div>
-                        <div><div class="text-3xl font-bold text-white">${unit.notes}</div><div class="text-sm text-gray-400">PDF Documents</div></div>
+                    <div class="grid md:grid-cols-2 gap-4 mb-8">
+                        <a href="${unit.pdf}" class="glass-card p-5 rounded-xl border border-gray-700 hover:border-green-500 flex gap-4 transition-colors">
+                            <i class="ph-fill ph-file-pdf text-red-500 text-2xl"></i>
+                            <div><h5 class="font-bold text-sm font-sinhala">සම්පූර්ණ සටහන</h5><p class="text-xs text-gray-400">PDF Download</p></div>
+                        </a>
+                        <a href="${unit.past_papers}" class="glass-card p-5 rounded-xl border border-gray-700 hover:border-green-500 flex gap-4 transition-colors">
+                            <i class="ph-fill ph-exam text-yellow-500 text-2xl"></i>
+                            <div><h5 class="font-bold text-sm font-sinhala">පසුගිය ප්‍රශ්න</h5><p class="text-xs text-gray-400">Past Papers</p></div>
+                        </a>
                     </div>
 
-                    <!-- Resources Grid inside the Unit -->
-                    <h4 class="text-xl font-bold mb-6 flex items-center gap-2"><i class="ph-bold ph-folder-open text-green-400"></i> Course Materials</h4>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        
-                        <a href="${unit.pdf}" target="_blank" class="glass-card p-5 rounded-xl border border-gray-700 hover:border-green-500 transition-colors flex gap-4 group cursor-pointer block">
-                            <div class="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center shrink-0">
-                                <i class="ph-fill ph-file-pdf text-red-500 text-2xl group-hover:scale-110 transition-transform"></i>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-sm mb-1 font-sinhala">සම්පූර්ණ සටහන (Full Note)</h5>
-                                <p class="text-xs text-gray-400">PDF • Click to open</p>
-                            </div>
-                        </a>
-
-                        <a href="${unit.video}" target="_blank" class="glass-card p-5 rounded-xl border border-gray-700 hover:border-green-500 transition-colors flex gap-4 group cursor-pointer block">
-                            <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center shrink-0">
-                                <i class="ph-fill ph-play-circle text-blue-500 text-2xl group-hover:scale-110 transition-transform"></i>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-sm mb-1 font-sinhala">වීඩියෝ මාලාව (Theory)</h5>
-                                <p class="text-xs text-gray-400">Videos • Click to watch</p>
-                            </div>
-                        </a>
-
-                        <a href="${unit.past_papers}" target="_blank" class="glass-card p-5 rounded-xl border border-gray-700 hover:border-green-500 transition-colors flex gap-4 group cursor-pointer block">
-                            <div class="w-12 h-12 rounded-lg bg-yellow-500/10 flex items-center justify-center shrink-0">
-                                <i class="ph-fill ph-exam text-yellow-500 text-2xl group-hover:scale-110 transition-transform"></i>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-sm mb-1 font-sinhala">පසුගිය ප්‍රශ්න පත්‍ර (Past Papers)</h5>
-                                <p class="text-xs text-gray-400">PDF/ZIP • Click to download</p>
-                            </div>
-                        </a>
-
-                        <a href="${unit.model_papers}" target="_blank" class="glass-card p-5 rounded-xl border border-gray-700 hover:border-green-500 transition-colors flex gap-4 group cursor-pointer block">
-                            <div class="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center shrink-0">
-                                <i class="ph-fill ph-check-square-offset text-green-500 text-2xl group-hover:scale-110 transition-transform"></i>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-sm mb-1 font-sinhala">ආදර්ශ ප්‍රශ්න (Model Papers)</h5>
-                                <p class="text-xs text-gray-400">PDF • Click to view</p>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
-            `;
+                    ${subTopicsHTML}
+                </div>`;
             contentContainer.appendChild(contentDiv);
         });
     </script>
-
-    <!-- GSAP for Animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script>
-        gsap.from('.fade-up', { y: 30, opacity: 0, duration: 1, stagger: 0.2 });
-    </script>
 </body>
-
 </html>
